@@ -21,4 +21,12 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 
 Route::resource('film', 'FilmController');
+// route to show the login form
+Route::get('login', array('uses' => 'HomeController@showLogin'));
 
+// route to process the form
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+Route::get('auth/logout', 'Auth\AuthController@logout');
+
+Route::get('logout', array('uses' => 'HomeController@doLogout'));

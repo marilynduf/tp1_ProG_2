@@ -70,14 +70,7 @@
                         <li><a href="film/create">Ajouter un film</a></li>
                         <li><a href="film/show">show</a></li>
                         <li><a href="film/modification">Modifier mon compte</a></li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @endif
                 </ul>
             </div>
