@@ -75,5 +75,13 @@ class AuthController extends Controller
         $user = User::findOrFail($id);
 
         return view('auth.modification')->withUser($user);
+
+    }
+
+    public function getLogout()
+    {
+        $this->auth->logout();
+        Session::flush();
+        return redirect('/');
     }
 }
