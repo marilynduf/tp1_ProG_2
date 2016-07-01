@@ -7,6 +7,9 @@ use App\Classement;
 use App\Film;
 
 use App\Http\Requests\CreateFilmRequest;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
+
 
 class FilmController extends Controller
 
@@ -72,7 +75,8 @@ class FilmController extends Controller
         if ($uploadReussi)
         {
 
-            return view('film')->withFilms($film);
+              return Redirect::to('film');
+              echo 'Le film a été ajouté à la liste!';
         }
 
 
@@ -95,22 +99,19 @@ class FilmController extends Controller
 
     function update($id, CreateFilmRequest $request)
     {
-        $film = \App\Film::findOrFail($id);
+        $film = Film::findOrFail($id);
 
         $film->update($request->all());
 
-        return view('/');
+        return view('film');
     }
 
     // Show function -----------------------------------
 
     public function show($id)
     {
-        $film = \App\Film::findOrFail($id);
+        $film = Film::findOrFail($id);
 
         return view('film/show')->withFilm($film);
     }
 }
-
-
-

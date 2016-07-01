@@ -55,9 +55,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <li class="recherche col s12 m3 l3">
-                        {!! Form::text('recherche') !!}<br>
+
+                        {!! Form::open(array('route' => 'queries.search', 'class'=>'form navbar-form navbar-right searchform')) !!}
+    {!! Form::text('search', null,
+                           array('required',
+                                'class'=>'form-control')) !!}
+     {!! Form::submit('Chercher',
+                                array('class'=>'btn btn-default')) !!}
+ {!! Form::close() !!}
                     </li>
-                    <li><a href="/">Accueil</a></li>
+                    <li><a href="film">Accueil</a></li>
 
                     <li><a href="film/create"></a></li>
                     @if (Auth::guest())

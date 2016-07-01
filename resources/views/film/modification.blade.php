@@ -8,8 +8,7 @@
     <h1>Modifier un film</h1>
 
 
-    {!! Form::model($film, $classements, ['url' => 'update/'.$film->id]) !!}
-    {{ var_dump($classements) }}
+    {!! Form::open([$film, 'action' => 'FilmController@store', 'files' => 'true']) !!}
 
     {!! Form::label('titre','Titre: ') !!}
     {!! Form::text('titre') !!}
@@ -22,6 +21,7 @@
 
     {!! Form::label('id_classement','Classement: ') !!} 
     {!! Form::select('id_classement', $classements, $film->classement) !!}
+    <?php var_dump($classements); ?>
 
     {!! Form::label('duree','Durée: ') !!}
     {!! Form::text('duree') !!}
@@ -32,7 +32,7 @@
     {!! Form::label('acteurs','Acteurs: ') !!}
     {!! Form::text('acteurs') !!}
 
-    {!! Form::submit('Ajouter') !!}
+    {!! Form::submit('Modifier') !!}
 
     {!! Form::close() !!}
 
