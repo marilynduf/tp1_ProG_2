@@ -45,8 +45,8 @@ nav ul a{
     max-height: 5px;
 }
 .recherche{
-    margin: 0;
-    padding: 1rem;
+    /*margin: 0;
+    padding: 1rem;*/
 }
 .barre-nav{
     position: fixed;
@@ -71,4 +71,3 @@ input[type=text]{
     width: 30rem;
     margin-bottom: 0;
 }
-
