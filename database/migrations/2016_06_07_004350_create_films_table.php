@@ -16,6 +16,7 @@ class CreateFilmsTable extends Migration
             $table->increments('id', 11)->unsigned();
             $table->string('titre', 50);
             $table->string('annee', 4);
+            $table->string('image');
             $table->string('duree', 3);
             $table->string('synopsis', 1000);
             $table->string('acteurs', 255);

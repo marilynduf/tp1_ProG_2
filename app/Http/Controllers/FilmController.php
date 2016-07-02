@@ -77,17 +77,20 @@ class FilmController extends Controller
 
 
         //return Redirect::to('/')->with('message', 'Image uploaded successfully');
-
     }
 
 
     // Edit function -----------------------------------
-
+    
     function edit($id)
     {
-        $film = Film::findOrFail($id);
 
-        return View::make('film.modification')->with('film', $film);
+        $datafilm = Film::findOrFail($id);
+
+        $classements = Classement::lists('id', 'id');
+        //$film = new Film();
+        //return view('film.modification')->withFilm($film, $datafilm, $classements);
+        return view('film.modification', compact('classements', 'datafilm'));
     }
 
     function update($id, CreateFilmRequest $request)

@@ -34,7 +34,7 @@
                                         <span><i class="material-icons">star</i></span>
                                                 <span><i class="material-icons">star</i></span>
                                                         <span><i class="material-icons">star</i></span>
-                        <a href="film/edit/{{$id}}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
+                        <a href="{{ route('film.edit', $film->id) }}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
                         </div>
                     </div>
                 </div>
