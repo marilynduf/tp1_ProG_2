@@ -26,9 +26,9 @@ class FilmController extends Controller
     function index()
     {
 
-        $films = Film::all();
+        $film = Film::all();
 
-        return view('film.index')->withFilms($films);
+        return view('film.index')->withFilms($film);
     }
 
     // Create function -----------------------------------
@@ -74,9 +74,11 @@ class FilmController extends Controller
 
         if ($uploadReussi)
         {
+            $confirmationAjout = 'Le film à été ajouté!';
 
-              return Redirect::to('film');
-              echo 'Le film a été ajouté à la liste!';
+              return Redirect::to('film.index')->with($confirmationAjout);
+            //return View::make('film', array('confirmationAjou' => 'Le film à été ajouté!'));
+
         }
 
 
@@ -89,21 +91,56 @@ class FilmController extends Controller
     function edit($id)
     {
 
-        $datafilm = Film::findOrFail($id);
+        $film = Film::findOrFail($id);
 
         $classements = Classement::lists('id', 'id');
-        //$film = new Film();
-        //return view('film.modification')->withFilm($film, $datafilm, $classements);
-        return view('film.modification', compact('classements', 'datafilm'));
+
+        return View::make('film.edit', compact('film', 'classements'));
+
     }
 
     function update($id, CreateFilmRequest $request)
     {
+
+        $donnees = $request->all();
+
         $film = Film::findOrFail($id);
 
-        $film->update($request->all());
 
-        return view('film');
+            $image = $donnees['image'];
+
+            $destinationPath = 'img';
+
+            $extension = $image->getClientOriginalExtension();
+
+            $nomImage = rand(11111, 99999) . '.' . $extension;
+
+            $uploadReussi = $image->move($destinationPath, $nomImage);
+
+
+        $film->titre = $donnees['titre'];
+        $film->annee = $donnees['annee'];
+        $film->image = $nomImage;
+        $film->id_classement = $donnees['id_classement'];
+        $film->duree = $donnees['duree'];
+        $film->synopsis = $donnees['synopsis'];
+        $film->acteurs = $donnees['acteurs'];
+        //$film->created_at => Carbon\Carbon::now()
+
+        $film->save(); // J'ai essayé la fonction update() mais elle ne semble pas fonctionner: $film->update($request->all());, donc j'utilise simplement la fonction save()
+
+        if ($uploadReussi)
+        {
+
+
+            flash()->success('Le film à été modifié!');
+
+            return view('welcome', compact('film'));
+
+
+        }
+
+
     }
 
     // Show function -----------------------------------
@@ -112,6 +149,15 @@ class FilmController extends Controller
     {
         $film = Film::findOrFail($id);
 
-        return view('film/show')->withFilm($film);
+        return View::make('film.show', compact('film'));
+    }
+
+    public function destroy($id)
+    {
+        $film = Film::findOrFail($id);
+
+        $film->delete();
+
+        return Redirect::to('confirmation');
     }
 }

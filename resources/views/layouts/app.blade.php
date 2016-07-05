@@ -30,6 +30,17 @@
         }
     </style>
 </head>
+
+@if (Session::has('flash_notification.message'))
+    <div class="alert alert-{{ Session::get('flash_notification.level') }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+        {{ Session::get('flash_notification.message') }}
+    </div>
+@endif
+
+
+
 <body id="app-layout">
     <nav class="barre-nav navbar-default navbar-static-top">
         <div class="container">
@@ -49,7 +60,8 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <a class="div-logo" href="{{ url('/') }}">
-                    <img src="img/logo-movie.png">
+
+                    <img src="{{url('/img/logo-movie.png')}}" alt="Logo">
                 </a>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -64,7 +76,6 @@
                                 array('class'=>'btn btn-default')) !!}
  {!! Form::close() !!}
                     </li>
-                    <li><a href="film">Accueil</a></li>
 
                     <li><a href="film/create"></a></li>
                     @if (Auth::guest())
@@ -75,7 +86,6 @@
                     @else
 
                         <li><a href="film/create">Ajouter un film</a></li>
-                        <li><a href="film/show">show</a></li>
                         <li><a href="film/modification">Modifier mon compte</a></li>
                         <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @endif

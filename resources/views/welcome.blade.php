@@ -12,9 +12,17 @@
             Il n'y a pas de film.
         @endif
 
+
+
+
+
+
+
+
+
+
         @foreach($films as $film)
 
-                {{ $id = $film->id }}
 
                 <div class="col s12 m7 l4">
                     <div class="card large">
@@ -34,7 +42,8 @@
                                         <span><i class="material-icons">star</i></span>
                                                 <span><i class="material-icons">star</i></span>
                                                         <span><i class="material-icons">star</i></span>
-                        <a href="{{ route('film.edit', $film->id) }}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
+
+                            <a class="waves-effect waves-light btn grey lighten-1 right"{{ link_to_route('film.show', 'Détail', $film->id) }}</a>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,11 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 
+Route::get('confirmation', 'HomeController@confirmation');
+
 Route::resource('film', 'FilmController');
+
+
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 

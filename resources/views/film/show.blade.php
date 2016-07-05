@@ -1,48 +1,47 @@
 @extends('layouts.app')
 
-@section('titre', 'Modifier-film')
+@section('titre', 'Accueil ')
 
 @section('content')
+    <div class="">
+
+        <h3>Détails du film: {{ $film->titre }}</h3>
+
+        <div class="row">
 
 
-    <h1>Modifier un film</h1>
+
+            <a class="waves-effect waves-light btn grey lighten-1 right" {{ link_to_route('film.edit', 'Modifier', $film->id ) }} </a>
+
+                <div class="col s12 m7 l4">
+                    <div class="card large">
+                        <div class="card-image">
+
+                            <img src="../img/{{ $film->image }}">
+
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">
+                                <li>{{ $film->titre }}</li></span>
+                            <p><li>{{ $film->synopsis }}</li></p>
+                        </div>
+                        <div class="card-action">
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+
+                        </div>
+                    </div>
+                </div>
 
 
-    {!! Form::model($film, ['url' => 'update/'.$film->id]) !!}
-
-    {!! Form::label('titre','Titre: ') !!}
-    {!! Form::text('titre') !!}
-
-    {!! Form::label('annee','Année de production: ') !!}
-    {!! Form::text('annee') !!}
-
-    {!! Form::label('image','Image:') !!}
-    {!! Form::file('image') !!}
-
-    {!! Form::label('id_classement','Classement: ') !!} 
-    {!! Form::select('id_classement', $classements, $film->classement) !!}
-    <?php var_dump($classements); ?>
-
-    {!! Form::label('duree','Durée: ') !!}
-    {!! Form::text('duree') !!}
-
-    {!! Form::label('synopsis','Synopsis: ') !!}
-    {!! Form::textarea('synopsis') !!}
-
-    {!! Form::label('acteurs','Acteurs: ') !!}
-    {!! Form::text('acteurs') !!}
-
-    {!! Form::submit('Ajouter') !!}
-
-    {!! Form::close() !!}
-
-    @if (count($errors) > 0)
-        <ul style="color:red">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+        </div>
 
 
-@stop
+    </div>
+    @endsection
+
+
+

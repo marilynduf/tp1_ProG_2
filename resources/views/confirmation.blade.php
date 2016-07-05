@@ -1,7 +1,9 @@
-@section('titre', 'Confirmation d\'inscription')
+@extends('layouts.app')
+
+@section('titre', 'Confirmation')
 
 @section('content')
 
-    <h1> {{ $donnees['titre'] }}, votre inscription est bonne!</h1>
+    <h4> le film {{ $film->titre }} à bien été modifié</h4>
 
-@stop
+@endsection

@@ -29,6 +29,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function confirmation()
+    {
+
+        return view('confirmation');
+    }
+
     public function index()
     {
         $films = Film::all();
@@ -36,10 +42,10 @@ class HomeController extends Controller
         return view('welcome')->withFilms($films);
     }
     public function showLogin()
-{
-    // show the form
-    return View::make('auth.login');
-}
+    {
+        // show the form
+        return View::make('auth.login');
+    }
     public function doLogin()
     {
     // validate the info, create rules for the inputs

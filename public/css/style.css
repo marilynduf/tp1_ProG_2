@@ -8,8 +8,10 @@
     justify-content: space-between;
 }
 body{
+    background-image: url('../img/bg-etoiles.jpeg');
     font-size: 16px;
 }
+
 #app-layout{
     background: #f8f8f8;
 }

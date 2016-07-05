@@ -3,6 +3,7 @@
 @section('titre', 'Accueil ')
 
 @section('content')
+
     <div class="">
 
         <h1>Bienvenue</h1>
@@ -36,8 +37,7 @@
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
-                            <a href="film/modification/{{$id}}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
-                        </div>
+                            <a href="{{ url('film/edit', $film->id) }}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
                     </div>
                 </div>
 
