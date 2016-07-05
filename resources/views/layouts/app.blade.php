@@ -31,18 +31,14 @@
     </style>
 </head>
 
-@if (Session::has('flash_notification.message'))
-    <div class="alert alert-{{ Session::get('flash_notification.level') }}">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-        {{ Session::get('flash_notification.message') }}
-    </div>
-@endif
 
 
 
 <body id="app-layout">
+
+
     <nav class="barre-nav navbar-default navbar-static-top">
+
         <div class="container">
             <div class="navbar-header">
 
@@ -69,12 +65,12 @@
                     <li class="recherche col s12 m3 l3">
 
                         {!! Form::open(array('route' => 'queries.search', 'class'=>'form navbar-form navbar-right searchform')) !!}
-    {!! Form::text('search', null,
-                           array('required',
-                                'class'=>'form-control')) !!}
-     {!! Form::submit('Chercher',
-                                array('class'=>'btn btn-default')) !!}
- {!! Form::close() !!}
+                        {!! Form::text('search', null,
+                                           array('required',
+                                                'class'=>'form-control')) !!}
+                        {!! Form::submit('Chercher',
+                                                array('class'=>'btn btn-default')) !!}
+                    {!! Form::close() !!}
                     </li>
 
                     <li><a href="film/create"></a></li>
@@ -96,8 +92,15 @@
 
 
     <!-- yield('content') ------------------------------->
+
+
+
+
     <section class='main container'>
+
+        @include ('partials.flash')
         @yield('content')
+
     </section>
 
     <!--------------------------------------------------->

@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: marilyndufour
- * Date: 2016-07-05
- * Time: 12:30 PM
- */
+@if (Session::has('flash_notification.message'))
+    <div class="alert alert-{{ Session::get('flash_notification.level') }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+        {{ Session::get('flash_notification.message') }}
+    </div>
+@endif

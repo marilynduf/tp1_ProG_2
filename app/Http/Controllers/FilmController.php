@@ -74,10 +74,10 @@ class FilmController extends Controller
 
         if ($uploadReussi)
         {
-            $confirmationAjout = 'Le film à été ajouté!';
 
-              return Redirect::to('film.index')->with($confirmationAjout);
-            //return View::make('film', array('confirmationAjou' => 'Le film à été ajouté!'));
+            flash()->success('Un nouveau film à été Ajouté!'); // success() ajoute une classe qui donne la couleur verte à la box message
+
+            return Redirect::to('film');
 
         }
 
@@ -133,9 +133,9 @@ class FilmController extends Controller
         {
 
 
-            flash()->success('Le film à été modifié!');
+            flash()->success('Le film à été modifié!'); // success() ajoute une classe qui donne la couleur verte à la box message
 
-            return view('welcome', compact('film'));
+            return Redirect::to('film');
 
 
         }
@@ -158,6 +158,8 @@ class FilmController extends Controller
 
         $film->delete();
 
-        return Redirect::to('confirmation');
+        flash('Le film à été supprimé'); // success() ajoute une classe qui donne la couleur verte à la box message
+
+        return Redirect::to('film');
     }
 }
