@@ -24,7 +24,10 @@ class CreateCritiqueRequest extends Request
     public function rules()
     {
         return [
-            //
+            'vote' => '',
+            'commentaire' => '',
+            'id_film' => '',
+            'id_utilisateur' => '',
         ];
     }
 }

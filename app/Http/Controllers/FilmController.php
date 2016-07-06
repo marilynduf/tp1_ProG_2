@@ -6,6 +6,8 @@ use App\Classement;
 
 use App\Film;
 
+use Illuminate\Support\Facades\File;
+
 use App\Http\Requests\CreateFilmRequest;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
@@ -27,7 +29,7 @@ class FilmController extends Controller
     {
 
         $film = Film::all();
-
+        
         return view('film.index')->withFilms($film);
     }
 
@@ -37,7 +39,8 @@ class FilmController extends Controller
     {
 
         $classements = Classement::lists('id','id');
-        $film = new Film();
+        //$film = new Film();
+        
         return view('film.create', compact('classements', 'film'));
     }
 
@@ -82,7 +85,6 @@ class FilmController extends Controller
         }
 
 
-        //return Redirect::to('/')->with('message', 'Image uploaded successfully');
     }
 
 
@@ -106,24 +108,31 @@ class FilmController extends Controller
 
         $film = Film::findOrFail($id);
 
-        @if($donnees->hasFile('image-upd'))
 
-            $image = $donnees['image-upd'];
 
-            $destinationPath = 'img';
 
-            $extension = $image->getClientOriginalExtension();
+       if($request->hasFile('image')) {
 
-            $nomImage = rand(11111, 99999) . '.' . $extension;
+           $oldimage = $film->image;
 
-            $uploadReussi = $image->move($destinationPath, $nomImage);
+           $destinationPath = 'img';
 
-        @endif
+           $image = $donnees['image'];
+
+           $extension = $image->getClientOriginalExtension();
+
+           $nomImage = rand(11111, 99999) . '.' . $extension;
+
+           $image->move($destinationPath, $nomImage);
+
+           $film->image = $nomImage;
+
+           File::delete($destinationPath. '/' .$oldimage);
+       }
 
 
         $film->titre = $donnees['titre'];
         $film->annee = $donnees['annee'];
-        $film->image = $nomImage;
         $film->id_classement = $donnees['id_classement'];
         $film->duree = $donnees['duree'];
         $film->synopsis = $donnees['synopsis'];
@@ -132,16 +141,16 @@ class FilmController extends Controller
 
         $film->save(); // J'ai essayé la fonction update() mais elle ne semble pas fonctionner: $film->update($request->all());, donc j'utilise simplement la fonction save()
 
-        if ($uploadReussi)
-        {
 
 
-            flash()->success('Le film à été modifié!'); // success() ajoute une classe qui donne la couleur verte à la box message
-
-            return Redirect::to('film');
 
 
-        }
+        flash()->success('Le film à été modifié!'); // success() ajoute une classe qui donne la couleur verte à la box message
+
+        return Redirect::to('film');
+
+
+
 
 
     }

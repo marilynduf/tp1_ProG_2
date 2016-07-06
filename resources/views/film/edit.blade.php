@@ -7,7 +7,6 @@
 
     <h1>Modifier un film</h1>
 
-
     <?php $image = $film->image ?>
 
     {{ $image }}
@@ -22,8 +21,7 @@
     {!! Form::text('annee') !!}
 
     {!! Form::label('image','Image:') !!}
-    {!! Form::file('image-upd') !!}
-    {!! Form::text('image', null) !!}
+    {!! Form::file('image') !!}
 
 
     {!! Form::label('id_classement','Classement: ') !!} 
@@ -43,7 +41,6 @@
     {!! Form::close() !!}
 
 
-
     {{ Form::open(array('url' => 'film/' . $film->id, 'class' => 'pull-right')) }}
     {{ Form::hidden('_method', 'DELETE') }}
     {{ Form::submit('Supprimer', array('class' => 'btn btn-warning')) }}
@@ -56,6 +53,43 @@
             @endforeach
         </ul>
     @endif
+
+
+
+
+
+<h1>Ajouter une critique</h1>
+
+
+@if(isset($critique))
+    {!! Form::model($critique, ['method' => 'PATCH', 'files' => 'true', 'route' => ['critique.create', $critique->id]]) !!}
+@else
+    {!! Form::open(['route' => 'critique.store', 'files' => 'true']) !!}
+@endif
+    {!! Form::label('Vote','Vote: ') !!}
+    {!! Form::text('vote') !!}
+    {!! Form::label('commentaire','Commentaire: ') !!}
+    {!! Form::textarea('commentaire') !!}
+
+    {!! Form::submit('Ajouter') !!}
+    {!! Form::close() !!}
+
+
+
+@if(isset($critique))
+    {{ Form::open(array('url' => 'critique/' . $critique->id, 'class' => 'pull-right')) }}
+    {{ Form::hidden('_method', 'DELETE') }}
+    {{ Form::submit('Supprimer', array('class' => 'btn btn-warning')) }}
+    {{ Form::close() }}
+@endif
+
+@if (count($errors) > 0)
+    <ul style="color:red">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
 
 
 @stop
