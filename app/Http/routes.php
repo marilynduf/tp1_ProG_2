@@ -24,6 +24,8 @@ Route::get('confirmation', 'HomeController@confirmation');
 
 Route::resource('film', 'FilmController');
 
+Route::resource('critique', 'CritiqueController');
+
 
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));

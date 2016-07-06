@@ -8,6 +8,10 @@
     <h1>Modifier un film</h1>
 
 
+    <?php $image = $film->image ?>
+
+    {{ $image }}
+
 
     {!! Form::model($film, ['method' => 'PATCH', 'files' => 'true', 'route' => ['film.update', $film->id]]) !!}
 
@@ -18,7 +22,9 @@
     {!! Form::text('annee') !!}
 
     {!! Form::label('image','Image:') !!}
-    {!! Form::file('image') !!}
+    {!! Form::file('image-upd') !!}
+    {!! Form::text('image', null) !!}
+
 
     {!! Form::label('id_classement','Classement: ') !!} 
     {!! Form::select('id_classement', $classements, $film->classement) !!}

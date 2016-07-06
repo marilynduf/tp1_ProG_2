@@ -106,8 +106,9 @@ class FilmController extends Controller
 
         $film = Film::findOrFail($id);
 
+        @if($donnees->hasFile('image-upd'))
 
-            $image = $donnees['image'];
+            $image = $donnees['image-upd'];
 
             $destinationPath = 'img';
 
@@ -116,6 +117,8 @@ class FilmController extends Controller
             $nomImage = rand(11111, 99999) . '.' . $extension;
 
             $uploadReussi = $image->move($destinationPath, $nomImage);
+
+        @endif
 
 
         $film->titre = $donnees['titre'];

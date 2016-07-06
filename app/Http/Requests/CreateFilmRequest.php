@@ -26,7 +26,7 @@ class CreateFilmRequest extends Request
         return [
             'titre' => 'required|max:255',
             'annee' => 'required|numeric',
-            'image' => 'required',
+            'image' => '',
             'id_classement' => 'required',
             'duree' => 'required|numeric',
             'synopsis' => 'required|max:1000',
