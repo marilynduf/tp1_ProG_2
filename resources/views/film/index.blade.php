@@ -23,7 +23,7 @@
                     <div class="card large">
                         <div class="card-image">
 
-                            <img src="img/{{ $film->image }}">
+                            <img src="img/film/{{ $film->image }}">
 
                         </div>
                         <div class="card-content">
@@ -37,7 +37,7 @@
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
-                            <a href="{{ url('film/edit', $film->id) }}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
+                            <a class="waves-effect waves-light btn grey lighten-1 right"{{ link_to_route('film.show', 'Détail', $film->id) }}</a>
                     </div>
                 </div>
 

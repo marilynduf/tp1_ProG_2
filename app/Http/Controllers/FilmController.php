@@ -6,6 +6,8 @@ use App\Classement;
 
 use App\Film;
 
+use Intervention\Image\Facades\Image as Image;
+
 use Illuminate\Support\Facades\File;
 
 use App\Http\Requests\CreateFilmRequest;
@@ -39,7 +41,7 @@ class FilmController extends Controller
     {
 
         $classements = Classement::lists('id','id');
-        //$film = new Film();
+        $film = new Film();
         
         return view('film.create', compact('classements', 'film'));
     }
@@ -54,7 +56,7 @@ class FilmController extends Controller
 
         $image = $donnees['image'];
 
-        $destinationPath = 'img';
+        $destinationPath = 'film/img';
 
         $extension = $image->getClientOriginalExtension();
 
@@ -115,7 +117,7 @@ class FilmController extends Controller
 
            $oldimage = $film->image;
 
-           $destinationPath = 'img';
+           $destinationPath = 'film/img';
 
            $image = $donnees['image'];
 
@@ -123,7 +125,10 @@ class FilmController extends Controller
 
            $nomImage = rand(11111, 99999) . '.' . $extension;
 
-           $image->move($destinationPath, $nomImage);
+               $image = Image::make($image)->resize(100, 100)->encode('jpg');
+
+           $image->save($destinationPath, $nomImage, 75);
+
 
            $film->image = $nomImage;
 
@@ -140,7 +145,6 @@ class FilmController extends Controller
         //$film->created_at => Carbon\Carbon::now()
 
         $film->save(); // J'ai essayé la fonction update() mais elle ne semble pas fonctionner: $film->update($request->all());, donc j'utilise simplement la fonction save()
-
 
 
 

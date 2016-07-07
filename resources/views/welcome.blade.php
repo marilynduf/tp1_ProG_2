@@ -28,7 +28,7 @@
                     <div class="card large">
                         <div class="card-image">
 
-                            <img src="img/{{ $film->image }}">
+                            <img src="img/film/{{ $film->image }}">
 
                         </div>
                         <div class="card-content">
