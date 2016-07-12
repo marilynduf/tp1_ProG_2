@@ -94,8 +94,6 @@
     <!-- yield('content') ------------------------------->
 
 
-
-
     <section class='main container'>
 
         @include ('partials.flash')

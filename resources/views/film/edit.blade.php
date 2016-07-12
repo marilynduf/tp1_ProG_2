@@ -62,7 +62,7 @@
 
 
 @if(isset($critique))
-    {!! Form::model($critique, ['method' => 'PATCH', 'files' => 'true', 'route' => ['critique.create', $critique->id]]) !!}
+    {!! Form::model($critique, ['method' => 'PATCH', 'files' => 'true', 'route' => ['critique.store', $critique->id]]) !!}
 @else
     {!! Form::open(['route' => 'critique.store', 'files' => 'true']) !!}
 @endif
@@ -70,10 +70,10 @@
     {!! Form::text('vote') !!}
     {!! Form::label('commentaire','Commentaire: ') !!}
     {!! Form::textarea('commentaire') !!}
+    {!! Form::hidden('id_film', $film->id) !!}
 
     {!! Form::submit('Ajouter') !!}
     {!! Form::close() !!}
-
 
 
 @if(isset($critique))

@@ -22,7 +22,7 @@ class CreateCritiquesTable extends Migration
         });
 
         Schema::table('critiques', function (Blueprint $table) {
-            $table->foreign('id_utilisateur')->references('id')->on('utilisateurs');
+            $table->foreign('id_utilisateur')->references('id')->on('users');
             $table->foreign('id_film')->references('id')->on('films');
 
         });

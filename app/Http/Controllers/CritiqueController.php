@@ -9,17 +9,16 @@ use App\Critique;
 use App\Http\Requests;
 
 use App\Http\Requests\CreateCritiqueRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 
 class CritiqueController extends Controller
 {
 
-    public function create()
+    function index()
     {
-        $critique = new Critique();
-
-        return view('film.edit', compact('critique'));
+     return view('welcome');
     }
 
     function store(CreateCritiqueRequest $request)
@@ -29,15 +28,13 @@ class CritiqueController extends Controller
 
         $critique = new Critique();
         $critique->vote = $donnees['vote'];
-        $critique->annee = $donnees['annee'];
-        $critique->vote = $donnees['id_film'];
-        $critique->annee = $donnees['id_utilisateur'];
+        $critique->commentaire = $donnees['commentaire'];
+        $critique->id_film = $donnees['id_film'];
+        $critique->id_utilisateur = Auth::user()->id;
 
         $critique->save();
 
-
-
-            flash()->success('Un nouveau film à été Ajouté!'); // success() ajoute une classe qui donne la couleur verte à la box message
+            flash()->success('Une critique à été Ajoutée!'); // success() ajoute une classe qui donne la couleur verte à la box message
 
             return Redirect::to('film');
 

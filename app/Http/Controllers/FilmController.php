@@ -112,7 +112,6 @@ class FilmController extends Controller
 
 
 
-
        if($request->hasFile('image')) {
 
            $oldimage = $film->image;

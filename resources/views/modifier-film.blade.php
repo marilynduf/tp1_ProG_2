@@ -8,7 +8,6 @@
     <h1>Modifier un film</h1>
 
 
-
     {!! Form::model($film, ['url' => 'update/'.$film->id]) !!}
 
     {!! Form::label('titre','Titre: ') !!}
