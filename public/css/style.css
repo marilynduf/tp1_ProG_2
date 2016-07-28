@@ -1,0 +1,78 @@
+/*************************************
+               GÉNÉRAL
+*************************************/
+.flex{
+    display: flex;
+}
+.space-between{
+    justify-content: space-between;
+}
+body{
+    background-image: url('../img/bg-etoiles.jpeg');
+    font-size: 16px;
+}
+
+#app-layout{
+    background: #f8f8f8;
+}
+li{
+    list-style-type: none;
+}
+.large{
+    max-width: 30rem; /* SIZE DE LA "CARD" */
+}
+.carte-film{
+    max-width: 30rem;
+}
+.main{
+    padding-top: 10rem;
+}
+/*************************************
+                 NAV
+*************************************/
+
+nav{
+    background-color: #fff;
+    line-height: 0;
+
+}
+.nav{
+    padding-top: 2rem;
+}
+nav ul a{
+    font-size: 1.8rem;
+}
+
+.navbar-brand{
+    max-height: 5px;
+}
+.recherche{
+    /*margin: 0;
+    padding: 1rem;*/
+}
+.barre-nav{
+    position: fixed;
+    height: 9.6rem;
+}
+
+.div-logo{
+    height: 5rem;
+}
+.div-logo img{
+    width: 13%;
+    height: 13%;
+}
+input[type=text]{
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 0.2rem;
+    padding: 0 0.5rem 0 0.5rem ;
+    color: green;
+    font-size: 16px;
+    height: 4rem;
+    width: 30rem;
+    margin-bottom: 0;
+}
+input[type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
+  height:30px;
+}
