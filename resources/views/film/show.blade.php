@@ -26,6 +26,7 @@
                             <p><li>{{ $film->synopsis }}</li></p>
                         </div>
                         <div class="card-action">
+<<<<<<< HEAD
                           <form method="post">
       <fieldset class="starability-growRotate">
 
@@ -43,6 +44,14 @@
 
       </fieldset>
     </form>
+=======
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+                            <span><i class="material-icons">star</i></span>
+
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
                         </div>
                     </div>
                 </div>
@@ -53,3 +62,9 @@
 
     </div>
     @endsection
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6

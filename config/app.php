@@ -93,7 +93,11 @@ return [
 
     'key' => env('APP_KEY'),
 
+<<<<<<< HEAD
     'cipher' =>  'AES-128-CBC',
+=======
+    'cipher' =>  'AES-256-CBC',
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
     /*
     |--------------------------------------------------------------------------
@@ -203,7 +207,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'Form' => Collective\Html\FormFacade::class,
+=======
+        'Form' => Collective\Html\FormFacade::class, 
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash' => Laracasts\Flash\Flash::class,
         'Image' => Intervention\Image\Facades\Image::class

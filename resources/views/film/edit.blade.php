@@ -66,6 +66,7 @@
 @else
     {!! Form::open(['route' => 'critique.store', 'files' => 'true']) !!}
 @endif
+<<<<<<< HEAD
 
 {!! Form::label('Vote','Vote: ') !!}
     <fieldset class="starability-growRotate">
@@ -83,6 +84,10 @@
       {!! Form::radio('vote','1', false, array('id'=>'rate1')) !!}
 
     </fieldset>
+=======
+    {!! Form::label('Vote','Vote: ') !!}
+    {!! Form::text('vote') !!}
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
     {!! Form::label('commentaire','Commentaire: ') !!}
     {!! Form::textarea('commentaire') !!}
     {!! Form::hidden('id_film', $film->id) !!}

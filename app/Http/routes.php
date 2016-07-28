@@ -16,8 +16,11 @@
 
 Route::auth();
 
+<<<<<<< HEAD
 Route::resource('user', 'ProfileController');
 
+=======
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 //Route::auth('edit/{id}', 'ProfileController@editProfile');
 
 Route::get('/', 'HomeController@index');

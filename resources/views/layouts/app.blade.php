@@ -13,6 +13,7 @@
     <!--Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--materialize.css-->
+<<<<<<< HEAD
 
     <link href="{{ asset('/css/materialize.min.css') }}"rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}"rel="stylesheet">
@@ -28,6 +29,15 @@
             }
         });
     </script> -->
+=======
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
     <style>
         body {
             font-family: 'Lato';
@@ -103,9 +113,15 @@
 
 
     <section class='main container'>
+<<<<<<< HEAD
       @yield('content')
 
         @include ('partials.flash')
+=======
+
+        @include ('partials.flash')
+        @yield('content')
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
     </section>
 

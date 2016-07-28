@@ -3,7 +3,11 @@
 @section('titre', 'Accueil ')
 
 @section('content')
+<<<<<<< HEAD
 <div class="col">
+=======
+<div class="">
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
     <h1>Bienvenue</h1>
 
@@ -34,6 +38,7 @@
                         <div class="card-content">
                             <span class="card-title">
                                 <li>{{ $film->titre }}</li></span>
+<<<<<<< HEAD
                             <p><li>{{ $film->synopsis }} {{ $vote->vote}}</li></p>
                         </div>
                         <div class="card-action">
@@ -59,6 +64,16 @@
 
     </fieldset>
   </form>
+=======
+                            <p><li>{{ $film->synopsis }}</li></p>
+                        </div>
+                        <div class="card-action">
+                        <span><i class="material-icons">star</i></span>
+                                <span><i class="material-icons">star</i></span>
+                                        <span><i class="material-icons">star</i></span>
+                                                <span><i class="material-icons">star</i></span>
+                                                        <span><i class="material-icons">star</i></span>
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
                             <a class="waves-effect waves-light btn grey lighten-1 right"{{ link_to_route('film.show', 'Détail', $film->id) }}</a>
                         </div>

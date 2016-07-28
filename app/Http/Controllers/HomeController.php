@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Film;
+<<<<<<< HEAD
 use App\Http\Controllers\VoteController;
+=======
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 use Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -39,12 +42,17 @@ class HomeController extends Controller
     public function index()
     {
         $films = Film::all();
+<<<<<<< HEAD
         foreach ($films as $key => $value) {
           //echo $value;
           $vote = VoteController::nbVotePourFilm($key);
           
         }
         return view('welcome')->with(['films' => $films, 'vote' => $vote]);
+=======
+
+        return view('welcome')->withFilms($films);
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
     }
     public function showLogin()
     {

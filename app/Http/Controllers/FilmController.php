@@ -7,7 +7,11 @@ use App\Classement;
 use App\Film;
 
 use Intervention\Image\Facades\Image as Image;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Input;
+=======
+
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 use Illuminate\Support\Facades\File;
 
 use App\Http\Requests\CreateFilmRequest;
@@ -31,7 +35,11 @@ class FilmController extends Controller
     {
 
         $film = Film::all();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
         return view('film.index')->withFilms($film);
     }
 
@@ -42,7 +50,11 @@ class FilmController extends Controller
 
         $classements = Classement::lists('id','id');
         $film = new Film();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
         return view('film.create', compact('classements', 'film'));
     }
 
@@ -54,12 +66,24 @@ class FilmController extends Controller
 
         $donnees = $request->all();
 
+<<<<<<< HEAD
         $image = Input::file('image');
         $nomImage = $image->getClientOriginalName();
         $destinationPath = public_path('img/film/'.$nomImage);
         Image::make($image->getRealPath())-> resize(100, 100)-> save($destinationPath);
 
         // $uploadReussi = $image->move($destinationPath, $nomImage);
+=======
+        $image = $donnees['image'];
+
+        $destinationPath = 'film/img';
+
+        $extension = $image->getClientOriginalExtension();
+
+        $nomImage = rand(11111, 99999) . '.' . $extension;
+
+        $uploadReussi = $image->move($destinationPath, $nomImage);
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
         $film = new Film();
         $film->titre = $donnees['titre'];
@@ -74,7 +98,11 @@ class FilmController extends Controller
 
         //$films = Film::all();
 
+<<<<<<< HEAD
         if ($image)
+=======
+        if ($uploadReussi)
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
         {
 
             flash()->success('Un nouveau film à été Ajouté!'); // success() ajoute une classe qui donne la couleur verte à la box message
@@ -88,7 +116,11 @@ class FilmController extends Controller
 
 
     // Edit function -----------------------------------
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
     function edit($id)
     {
 
@@ -115,11 +147,23 @@ class FilmController extends Controller
 
            $destinationPath = 'film/img';
 
+<<<<<<< HEAD
            $image = Input::file('image');
            $nomImage = $image->getClientOriginalName();
            $destinationPath = public_path('img/film/'.$nomImage);
            Image::make($image->getRealPath())-> resize(100, 100)-> save($destinationPath);
           //  $this->save($destinationPath, $nomImage, 75);
+=======
+           $image = $donnees['image'];
+
+           $extension = $image->getClientOriginalExtension();
+
+           $nomImage = rand(11111, 99999) . '.' . $extension;
+
+               $image = Image::make($image)->resize(100, 100)->encode('jpg');
+
+           $image->save($destinationPath, $nomImage, 75);
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
 
            $film->image = $nomImage;

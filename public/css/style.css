@@ -73,6 +73,9 @@ input[type=text]{
     width: 30rem;
     margin-bottom: 0;
 }
+<<<<<<< HEAD
 input[type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
   height:30px;
 }
+=======
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6

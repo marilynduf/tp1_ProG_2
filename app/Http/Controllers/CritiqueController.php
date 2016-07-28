@@ -27,10 +27,17 @@ class CritiqueController extends Controller
         $donnees = $request->all();
 
         $critique = new Critique();
+<<<<<<< HEAD
         // $critique->vote = $donnees['vote'];
         $critique->commentaire = $donnees['commentaire'];
         $critique->id_film = $donnees['id_film'];
         // $critique->id_utilisateur = Auth::user()->id;
+=======
+        $critique->vote = $donnees['vote'];
+        $critique->commentaire = $donnees['commentaire'];
+        $critique->id_film = $donnees['id_film'];
+        $critique->id_utilisateur = Auth::user()->id;
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
 
         $critique->save();
 
@@ -39,9 +46,14 @@ class CritiqueController extends Controller
             return Redirect::to('film');
 
 
+<<<<<<< HEAD
             $critique = DB::table('critiques')
             ->select(DB::raw('SUM(vote) as vote, COUNT(vote) as count'))
             ->where('id_film', '=', $id_film)
             ->get();
     }
     }
+=======
+    }
+}
+>>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
