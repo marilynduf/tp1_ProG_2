@@ -105,9 +105,15 @@ class FilmController extends Controller
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
         {
 
+<<<<<<< HEAD
             flash()->success('Un nouveau film à été Ajouté!'); // success() ajoute une classe qui donne la couleur verte à la box message
 
             return Redirect::to('film');
+=======
+              return Redirect::to('film');
+              echo 'Le film a été ajouté à la liste!';
+        }
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 
         }
 
@@ -134,6 +140,10 @@ class FilmController extends Controller
 
     function update($id, CreateFilmRequest $request)
     {
+<<<<<<< HEAD
+=======
+        $film = Film::findOrFail($id);
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 
         $donnees = $request->all();
 
@@ -193,6 +203,10 @@ class FilmController extends Controller
 
 
 
+<<<<<<< HEAD
+=======
+        return view('film');
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
     }
 
     // Show function -----------------------------------
@@ -203,6 +217,7 @@ class FilmController extends Controller
 
         return View::make('film.show', compact('film'));
     }
+<<<<<<< HEAD
 
     public function destroy($id)
     {
@@ -214,4 +229,6 @@ class FilmController extends Controller
 
         return Redirect::to('film');
     }
+=======
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 }

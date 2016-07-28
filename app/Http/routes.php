@@ -28,13 +28,18 @@ Route::get('/', 'HomeController@index');
 Route::get('confirmation', 'HomeController@confirmation');
 
 Route::resource('film', 'FilmController');
+// route to show the login form
+Route::get('login', array('uses' => 'HomeController@showLogin'));
 
+<<<<<<< HEAD
 Route::resource('critique', 'CritiqueController');
 
 
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 
+=======
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 // route to process the form
 Route::post('login', array('uses' => 'HomeController@doLogin'));
 

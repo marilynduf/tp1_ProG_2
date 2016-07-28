@@ -6,9 +6,12 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Film;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use App\Http\Controllers\VoteController;
 =======
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
+=======
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 use Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -55,10 +58,17 @@ class HomeController extends Controller
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
     }
     public function showLogin()
+<<<<<<< HEAD
     {
         // show the form
         return View::make('auth.login');
     }
+=======
+{
+    // show the form
+    return View::make('auth.login');
+}
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
     public function doLogin()
     {
     // validate the info, create rules for the inputs

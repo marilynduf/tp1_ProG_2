@@ -83,6 +83,7 @@
                     <li class="recherche col s12 m3 l3">
 
                         {!! Form::open(array('route' => 'queries.search', 'class'=>'form navbar-form navbar-right searchform')) !!}
+<<<<<<< HEAD
                         {!! Form::text('search', null,
                                            array('required',
                                                 'class'=>'form-control')) !!}
@@ -90,6 +91,16 @@
                                                 array('class'=>'btn btn-default')) !!}
                     {!! Form::close() !!}
                     </li>
+=======
+    {!! Form::text('search', null,
+                           array('required',
+                                'class'=>'form-control')) !!}
+     {!! Form::submit('Chercher',
+                                array('class'=>'btn btn-default')) !!}
+ {!! Form::close() !!}
+                    </li>
+                    <li><a href="film">Accueil</a></li>
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 
                     <li><a href="film/create"></a></li>
                     @if (Auth::guest())

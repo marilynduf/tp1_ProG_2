@@ -6,10 +6,14 @@
     <div class="">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
+=======
+        
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
 
         <div class="row">
             @if (empty($films))
@@ -36,6 +40,7 @@
                         </div>
                         <div class="card-action">
 <<<<<<< HEAD
+<<<<<<< HEAD
                           <form method="post">
       <fieldset class="starability-growRotate">
         {!! Form::label('rate5','Amazing: 5 stars') !!}
@@ -53,13 +58,18 @@
     </form>
     <a class="waves-effect waves-light btn grey lighten-1 right"{{ link_to_route('film.show', 'Détail', $film->id) }}</a>
 =======
+=======
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
                             <span><i class="material-icons">star</i></span>
                             <a href="film/modification/{{$id}}" class="waves-effect waves-light btn grey lighten-1 right">Détails</a>
+<<<<<<< HEAD
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
+=======
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
                         </div>
                     </div>
                 </div>

@@ -60,6 +60,7 @@
         </div>
 
 
+<<<<<<< HEAD
     </div>
     @endsection
 <<<<<<< HEAD
@@ -68,3 +69,6 @@
 
 
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
+=======
+@stop
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305

@@ -24,8 +24,11 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <!-- <div class="col s12 m7 l4"> -->
 =======
+=======
+>>>>>>> f58b141dfae73097dae75577b3fb74e52c756305
                 <div class="col s12 m7 l4">
 >>>>>>> a70be0ed88e0b50d1ca50223bb1a5871a1e3a5a6
                     <div class="card large">
