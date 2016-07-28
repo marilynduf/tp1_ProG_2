@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('titre', 'Accueil ')
+@section('titre', 'search ')
 
 @section('content')
     <div class="">
 
-        <h1>Bienvenue</h1>
+        
 
         <div class="row">
             @if (empty($films))

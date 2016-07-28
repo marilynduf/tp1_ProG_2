@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('titre', 'Ajout-film')
+@section('titre', 'Modifier-film')
 
 @section('content')
 
 
-    <h1>Ajouter un film</h1>
+    <h1>Modifier un film</h1>
 
 
-    {!! Form::open([$film, 'action' => 'FilmController@store', 'files' => 'true']) !!}
+    {!! Form::model($film, ['url' => 'update/'.$film->id]) !!}
 
     {!! Form::label('titre','Titre: ') !!}
     {!! Form::text('titre') !!}
@@ -33,7 +33,6 @@
     {!! Form::text('acteurs') !!}
 
     {!! Form::submit('Ajouter') !!}
-  
 
     {!! Form::close() !!}
 
@@ -44,7 +43,6 @@
             @endforeach
         </ul>
     @endif
-
 
 
 @stop

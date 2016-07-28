@@ -30,3 +30,7 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 Route::get('auth/logout', 'Auth\AuthController@logout');
 
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
+
+Route::post('/search', ['uses' => 'QueryController@search', 'as' => 'queries.search']);
+
+// Route::resource('queries', 'QueryController');

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('titre', 'Ajout-film')
 
@@ -47,4 +47,4 @@
 
 @stop
 
-@endsection
+@endsection -->
