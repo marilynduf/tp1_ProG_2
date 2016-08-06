@@ -66,6 +66,25 @@
 @else
     {!! Form::open(['route' => 'critique.store', 'files' => 'true']) !!}
 @endif
+
+
+{!! Form::label('Vote','Vote: ') !!}
+    <fieldset class="starability-growRotate">
+
+
+      {!! Form::label('rate5','Amazing: 5 stars') !!}
+      {!! Form::radio('vote','5', true, array('id'=>'rate5')) !!}
+      {!! Form::label('rate4','Amazing: 4 stars') !!}
+      {!! Form::radio('vote','4', false, array('id'=>'rate4')) !!}
+      {!! Form::label('rate3','Amazing: 3 stars') !!}
+      {!! Form::radio('vote','3', false, array('id'=>'rate3')) !!}
+      {!! Form::label('rate2','Amazing: 2 stars') !!}
+      {!! Form::radio('vote','2', false, array('id'=>'rate2')) !!}
+      {!! Form::label('rate1','Amazing: 2 stars') !!}
+      {!! Form::radio('vote','1', false, array('id'=>'rate1')) !!}
+
+    </fieldset>
+
     {!! Form::label('Vote','Vote: ') !!}
     {!! Form::text('vote') !!}
     {!! Form::label('commentaire','Commentaire: ') !!}

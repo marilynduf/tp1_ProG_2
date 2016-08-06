@@ -13,6 +13,22 @@
     <!--Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--materialize.css-->
+
+    <link href="{{ asset('/css/materialize.min.css') }}"rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}"rel="stylesheet">
+    <link href="{{ asset('/css/starability-growRotate.min.css') }}"rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    {{-- <link href="{{ elixir('/css/styl.css') }}" rel="stylesheet"> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <!-- <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script> -->
+
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/style.css">
 
@@ -95,6 +111,10 @@
 
 
     <section class='main container'>
+      @yield('content')
+
+        @include ('partials.flash')
+
 
         @include ('partials.flash')
         @yield('content')
